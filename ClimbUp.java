@@ -1,7 +1,10 @@
 public class ClimbUp implements Operator{
 
   public boolean checkPreconditions(WorldState worldState) {
-    // TODO Auto-generated method stub
+    if (worldState.getMonkeyRoom().equalsIgnoreCase(worldState.getBoxRoom())
+    && worldState.isLow()) {
+      return true;
+    }
     return false;
   }
 
