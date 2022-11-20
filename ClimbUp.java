@@ -1,13 +1,23 @@
-public class ClimbUp implements Operator{
+public class ClimbUp implements Operator {
+    private String operatorName = "CLIMBUP";
 
-  public boolean checkPreconditions(WorldState worldState) {
-    // TODO Auto-generated method stub
-    return false;
-  }
+    public boolean checkPreconditions(WorldState worldState) {
+        if (!worldState.isMonkeyAt(worldState.getBoxRoom())) {
+            return false;
+        }
 
-  public WorldState applyPostconditions(WorldState worldState) {
-    // TODO Auto-generated method stub
-    return null;
-  }
+        if (!worldState.isLow()) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public WorldState applyPostconditions(WorldState worldState) {
+        // create and return a new WorldState
+        // with the monkey’s updated location
+        return new WorldState(worldState.getMonkeyRoom(), worldState.getBoxRoom(), worldState.getBananaRoom(), false,
+                worldState.isMonkeyBananas());
+    }
   
 }

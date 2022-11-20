@@ -1,13 +1,23 @@
 public class Grab implements Operator {
+    private String operatorName = "GRAB";
 
-  public boolean checkPreconditions(WorldState worldState) {
-    // TODO Auto-generated method stub
-    return false;
-  }
+    public boolean checkPreconditions(WorldState worldState) {
+        if (!worldState.isMonkeyAt(worldState.getBananaRoom())) {
+            return false;
+        }
 
-  public WorldState applyPostconditions(WorldState worldState) {
-    // TODO Auto-generated method stub
-    return null;
-  }
+        if (!worldState.isLow()) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public WorldState applyPostconditions(WorldState worldState) {
+        // create and return a new WorldState
+        // with the monkey’s updated location
+        return new WorldState(worldState.getMonkeyRoom(), worldState.getBoxRoom(), worldState.getBananaRoom(), worldState.isLow(),
+                true);
+    }
   
 }
