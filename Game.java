@@ -6,6 +6,8 @@ public class Game {
     String monkeyRoom = getRoom("Monkey");
     String boxRoom = getRoom("Box");
     String bananaRoom = getRoom("Banana");
+    WorldState firstState = new WorldState(monkeyRoom, boxRoom, bananaRoom, true, false);
+    System.out.println(firstState.toString());
   }
 
   public void line() {
