@@ -1,23 +1,22 @@
-public class Move implements Operator{
+public class Move implements Operator {
     private String operatorName = "MOVE";
     private String moveFrom;
     private String moveTo;
 
     public Move(String from, String to) {
-    this.moveFrom = from;
-    this.moveTo = to;
+        this.moveFrom = from;
+        this.moveTo = to;
     }
 
     public boolean checkPreconditions(WorldState worldState) {
     if(!worldState.isMonkeyAt(moveFrom)){
-    return false;
+        return false;
     }
 
-    if(!worldState.isLow()){
-    return false;
+    if(!worldState.isLow()) {
+        return false;
     }
-
-    return true;
+        return true;
     }
 
     public WorldState applyPostconditions(WorldState worldState) {
@@ -29,6 +28,10 @@ public class Move implements Operator{
         //create and return a new WorldState
         //with the monkey’s updated location
         return newState;
+    }
+
+    public String toString() {
+        return operatorName + "(" + moveFrom + "," + moveTo + ")";
     }
 
 }

@@ -41,6 +41,21 @@ public class WorldState {
     return monkeyHasBananas;
   }
 
+  public int evaluate() {
+    if (monkeyHasBananas) {
+      return 1000;
+    } else if (!monkeyLow && isMonkeyAt(bananaRoom) && isMonkeyAt(boxRoom)) {
+      return 900;
+    } else if (isMonkeyAt(bananaRoom) && isMonkeyAt(boxRoom) && isLow()) {
+      return 800;
+    } else if (isMonkeyAt(boxRoom)) {
+      return 700;
+    }
+    return 0;
+  }
+  public WorldState clone() {
+    return new WorldState(monkeyRoom, boxRoom, bananaRoom, monkeyLow, monkeyHasBananas);
+  }
   public String toString() {
     return "Monkey " + monkeyRoom  
     + "\nBox " + boxRoom 

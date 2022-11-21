@@ -30,5 +30,8 @@ public class Push implements Operator {
     return new WorldState(worldState.getMonkeyRoom(), pushTo, worldState.getBananaRoom(), worldState.isLow(),
         worldState.isMonkeyBananas());
   }
-  
+
+  public String toString() {
+    return operatorName + "(" + pushFrom + "," + pushTo + ")";
+}
 }

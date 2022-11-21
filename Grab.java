@@ -6,7 +6,7 @@ public class Grab implements Operator {
             return false;
         }
 
-        if (!worldState.isLow()) {
+        if (worldState.isLow()) {
             return false;
         }
 
@@ -19,5 +19,7 @@ public class Grab implements Operator {
         return new WorldState(worldState.getMonkeyRoom(), worldState.getBoxRoom(), worldState.getBananaRoom(), worldState.isLow(),
                 true);
     }
-  
+    public String toString() {
+        return operatorName;
+    }
 }
